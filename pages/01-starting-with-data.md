@@ -415,7 +415,7 @@ sd(dat[, 7])</code></pre>
 What if we need the maximum inflammation for all patients, or the average for each day?
 As the diagram below shows, we want to perform the operation across a margin of the data frame:
 
-<img src="figure/r-operations-across-axes.svg" alt="Operations Across Axes" />
+<img src="fig/r-operations-across-axes.svg" alt="Operations Across Axes" />
 
 To support this, we can use the `apply` function.
 
@@ -485,7 +485,7 @@ Plotting the values is done with the function `plot`.
 
 <pre class='in'><code>plot(avg_day_inflammation)</code></pre>
 
-<img src="figure/01-starting-with-data-plot-avg-inflammation.png" title="plot of chunk plot-avg-inflammation" alt="plot of chunk plot-avg-inflammation" style="display: block; margin: auto;" />
+<img src="fig/01-starting-with-data-plot-avg-inflammation.png" title="plot of chunk plot-avg-inflammation" alt="plot of chunk plot-avg-inflammation" style="display: block; margin: auto;" />
 
 Above, we gave the function `plot` a vector of numbers corresponding to the average inflammation per day across all patients.
 `plot` created a scatter plot where the y-axis is the average inflammation level and the x-axis is the order, or index, of the values in the vector, which in this case correspond to the 40 days of treatment.
@@ -496,13 +496,13 @@ Let's have a look at two other statistics: the maximum and minimum inflammation 
 <pre class='in'><code>max_day_inflammation <- apply(dat, 2, max)
 plot(max_day_inflammation)</code></pre>
 
-<img src="figure/01-starting-with-data-plot-max-inflammation.png" title="plot of chunk plot-max-inflammation" alt="plot of chunk plot-max-inflammation" style="display: block; margin: auto;" />
+<img src="fig/01-starting-with-data-plot-max-inflammation.png" title="plot of chunk plot-max-inflammation" alt="plot of chunk plot-max-inflammation" style="display: block; margin: auto;" />
 
 
 <pre class='in'><code>min_day_inflammation <- apply(dat, 2, min)
 plot(min_day_inflammation)</code></pre>
 
-<img src="figure/01-starting-with-data-plot-min-inflammation.png" title="plot of chunk plot-min-inflammation" alt="plot of chunk plot-min-inflammation" style="display: block; margin: auto;" />
+<img src="fig/01-starting-with-data-plot-min-inflammation.png" title="plot of chunk plot-min-inflammation" alt="plot of chunk plot-min-inflammation" style="display: block; margin: auto;" />
 
 The maximum value rises and falls perfectly smoothly, while the minimum seems to be a step function. Neither result seems particularly likely, so either there's a mistake in our calculations or something is wrong with our data.
 

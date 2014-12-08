@@ -259,7 +259,7 @@ sd(dat[, 7])
 What if we need the maximum inflammation for all patients, or the average for each day?
 As the diagram below shows, we want to perform the operation across a margin of the data frame:
 
-<img src="figure/r-operations-across-axes.svg" alt="Operations Across Axes" />
+<img src="fig/r-operations-across-axes.svg" alt="Operations Across Axes" />
 
 To support this, we can use the `apply` function.
 

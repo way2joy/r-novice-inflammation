@@ -37,7 +37,7 @@ grid1 <- block_grid(5, type = "vector")
 grid1
 ```
 
-![plot of chunk unnamed-chunk-3](figure/unnamed-chunk-3.png) 
+![plot of chunk unnamed-chunk-3](fig/unnamed-chunk-3.png) 
 
 
 We can see that this grid represents a vector. It is a single dimension and has 5 locations (which we gave to it in the first argument). We can see the summarized information in the grid:
@@ -58,7 +58,7 @@ grid1[1:2] <- "red"
 grid1
 ```
 
-![plot of chunk unnamed-chunk-5](figure/unnamed-chunk-5.png) 
+![plot of chunk unnamed-chunk-5](fig/unnamed-chunk-5.png) 
 
 
 Let's try it another way index using __negative integers__. Here we tell the program to select elements that ARE NOT 1-3, and color them blue:
@@ -70,7 +70,7 @@ grid2[-c(1:3)] <- "blue"
 grid2
 ```
 
-![plot of chunk unnamed-chunk-6](figure/unnamed-chunk-6.png) 
+![plot of chunk unnamed-chunk-6](fig/unnamed-chunk-6.png) 
 
 
 Lets try to index using __logical vectors__. Here we use a set a true/false statements to tell the cells what color to display:
@@ -82,7 +82,7 @@ grid3[c(T, F, T, F, T)] = "darkred"
 grid3
 ```
 
-![plot of chunk unnamed-chunk-7](figure/unnamed-chunk-7.png) 
+![plot of chunk unnamed-chunk-7](fig/unnamed-chunk-7.png) 
 
 
 One challenging concept for those new to R is the recycling rule. rBlocks can be used to explain this concept visually.
@@ -93,7 +93,7 @@ grid4 <- block_grid(5, type = "vector")
 grid4
 ```
 
-![plot of chunk unnamed-chunk-8](figure/unnamed-chunk-81.png) 
+![plot of chunk unnamed-chunk-8](fig/unnamed-chunk-81.png) 
 
 ```r
 
@@ -101,7 +101,7 @@ grid4[c(TRUE, FALSE)] <- "blue"
 grid4
 ```
 
-![plot of chunk unnamed-chunk-8](figure/unnamed-chunk-82.png) 
+![plot of chunk unnamed-chunk-8](fig/unnamed-chunk-82.png) 
 
 
 In this example, we are using a logical vector `c(TRUE, FALSE)` to access elements of the vector grid4. According to the recycling rule, this short vector is expanded out as `c(TRUE, FALSE, TRUE, FALSE, TRUE) to match the length of grid4. The grid image makes on top makes it easy to understand what is happening.
@@ -145,7 +145,7 @@ grid6[1] <- "dodgerblue3"
 grid6
 ```
 
-![plot of chunk unnamed-chunk-10](figure/unnamed-chunk-10.png) 
+![plot of chunk unnamed-chunk-10](fig/unnamed-chunk-10.png) 
 
 
 In a matrix, if you only have a single index value, it assumes the cell you refer to is the same (e.g. [1] ~ [1,1])
@@ -159,7 +159,7 @@ grid7[1] <- "dodgerblue3"
 grid7
 ```
 
-![plot of chunk unnamed-chunk-11](figure/unnamed-chunk-11.png) 
+![plot of chunk unnamed-chunk-11](fig/unnamed-chunk-11.png) 
 
 ```r
 print_raw(grid7)  #shows the data frame
@@ -175,7 +175,7 @@ grid7b[1, ] <- "goldenrod"
 grid7b
 ```
 
-![plot of chunk unnamed-chunk-12](figure/unnamed-chunk-12.png) 
+![plot of chunk unnamed-chunk-12](fig/unnamed-chunk-12.png) 
 
 
 Remember the apply function from earlier? Let us use apply to change the light green cells in grid7 to `olivedrab` and the blue cells to `darkslategray`.
@@ -195,7 +195,7 @@ grid8
 display(grid8)
 ```
 
-![plot of chunk unnamed-chunk-13](figure/unnamed-chunk-13.png) 
+![plot of chunk unnamed-chunk-13](fig/unnamed-chunk-13.png) 
 
 
 We need the `display` function here, since apply drops attributes, and my implementation of the grid needs the object to be marked with the block class to overlod the print method (I am sure there are more elegant implementations that can handle this better, without bothering the user. Any thoughts?)
@@ -208,7 +208,7 @@ grid9 <- block_grid(5, 5)
 grid9
 ```
 
-![plot of chunk unnamed-chunk-14](figure/unnamed-chunk-14.png) 
+![plot of chunk unnamed-chunk-14](fig/unnamed-chunk-14.png) 
 
 
 extracting the first column converts it to a vector
@@ -219,7 +219,7 @@ grid10 <- grid9[, 1]
 display(grid10)
 ```
 
-![plot of chunk unnamed-chunk-15](figure/unnamed-chunk-15.png) 
+![plot of chunk unnamed-chunk-15](fig/unnamed-chunk-15.png) 
 
 	
 # Conditionals (Control flow)
@@ -396,7 +396,7 @@ _What do you think this will look like?_
 square
 ```
 
-![plot of chunk unnamed-chunk-26](figure/unnamed-chunk-26.png) 
+![plot of chunk unnamed-chunk-26](fig/unnamed-chunk-26.png) 
 
 
 This is our first hand-made data visualization: the colors show where x is less than, equal to, or greater than y.
@@ -446,7 +446,7 @@ for (x in 1:height) {
 heat_map
 ```
 
-![plot of chunk unnamed-chunk-29](figure/unnamed-chunk-29.png) 
+![plot of chunk unnamed-chunk-29](fig/unnamed-chunk-29.png) 
 
 
 This may be what we asked for, but both the image and the code are hideous:
@@ -491,7 +491,7 @@ for (x in 1:height) {
 heatmap
 ```
 
-![plot of chunk unnamed-chunk-30](figure/unnamed-chunk-30.png) 
+![plot of chunk unnamed-chunk-30](fig/unnamed-chunk-30.png) 
 
 
 That's a bit better—but now the contrast between the colors isn't great enough. And there still aren't very many fuchsia cells: we may want to widen the band around the mean that gets that color. We could rewrite our loop a third time, but the right thing to do is to put our code in a function so that we can experiment with bands and colors more easily.
@@ -529,7 +529,7 @@ h <- make_heatmap(flipped, "lightpink", "hotpink", "deeppink4", 0.8, 1.2)
 h
 ```
 
-![plot of chunk unnamed-chunk-32](figure/unnamed-chunk-32.png) 
+![plot of chunk unnamed-chunk-32](fig/unnamed-chunk-32.png) 
 
 
 That seems right, so let's widen the band and use more dramatic colors:
@@ -540,7 +540,7 @@ h <- make_heatmap(flipped, "gray60", "chartreuse", "darkgreen", 0.5, 1.5)
 h
 ```
 
-![plot of chunk unnamed-chunk-33](figure/unnamed-chunk-33.png) 
+![plot of chunk unnamed-chunk-33](fig/unnamed-chunk-33.png) 
 
 
 We'll probably want to experiment a bit more before publishing, but writing a function has made experimenting easy. We can make it even easier by re-defining our function one more time to give the parameters default values. While we're at it, let's put the low and high bands at the front, since they're more likely to change than our color choices:
@@ -580,7 +580,7 @@ h <- make_heatmap(flipped, 0.5, 1.5, "gray60", "chartreuse", "darkgreen")
 h
 ```
 
-![plot of chunk unnamed-chunk-35](figure/unnamed-chunk-35.png) 
+![plot of chunk unnamed-chunk-35](fig/unnamed-chunk-35.png) 
 
 
 We can now leave out everything except the data being visualized, or provide the data and the bands and re-use the default colors and block size:
@@ -591,7 +591,7 @@ h <- make_heatmap(flipped)
 h
 ```
 
-![plot of chunk unnamed-chunk-36](figure/unnamed-chunk-361.png) 
+![plot of chunk unnamed-chunk-36](fig/unnamed-chunk-361.png) 
 
 ```r
 
@@ -599,7 +599,7 @@ h <- make_heatmap(flipped, 0.4, 1.6)
 h
 ```
 
-![plot of chunk unnamed-chunk-36](figure/unnamed-chunk-362.png) 
+![plot of chunk unnamed-chunk-36](fig/unnamed-chunk-362.png) 
 
 
 We can now explore our data with just a few keystrokes, which means we can concentrate on our science and not on our programming.
